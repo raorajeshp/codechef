@@ -1,0 +1,79 @@
+[info] Running Main 
+Question 1------------------------------------------------------------
+  % modulus      3  %   2 = {1}  
+  &  bit and      3   &   7 = {3}  
+  *  math mul     3   *   7 = {21}  
+  +  math add     3   +   7 = {10}  
+  -  math minus   3   -   7 = {-4}  
+  /  math div     3   /   2 = {1}  
+  >  comp gt      3   >   2 = {true}  
+  >= comp gte     3   >=  2 = {true}  
+  >> right bit    3   >>  1 = {1}  
+ >>> Comp gte     7  >>>  2 = {1}  
+  ^  math pow     3   ^   5 = {6}  
+  |  bit or       3   |   5 = {7}  
+asInstanceOf  3.asInstanceOf[Double] = {3.0}  
+isInstanceOf  3.isInstanceOf[Int]    = {true}  
+toByte           3.toByte   = {3}  
+toChar           3.toChar   = {}  
+toDouble         3.toDouble = {3.000000}  
+toFloat          3.toFloat  = {3.000000}  
+toInt            3.toInt    = {3}  
+toLong           3.toLong   = {3}  
+toShort          3.toShort  = {3}  
+toString         3.toString = {3}  
+toByte           3.toByte   = {3}  
+Question 2------------------------------------------------------------
+sqrt (3) = {1.732051}  
+squared_sqRoot = {3.000000}  
+diff from 3 = {0.000000}  
+scala REPL output === 
+scala> sqrt(3)
+warning: there were 1 deprecation warnings; re-run with -deprecation for details
+res3: Double = 1.7320508075688772
+
+scala> pow(res3, 2)
+warning: there were 1 deprecation warnings; re-run with -deprecation for details
+res4: Double = 2.9999999999999996
+
+scala> 3 - res4
+res5: Double = 4.440892098500626E-16
+Question 3------------------------------------------------------------
+res variables in repl are VAL's
+Question 4------------------------------------------------------------
+crazy * 3= {crazycrazycrazy} 
+found in StringLike.class
+Question 5------------------------------------------------------------
+tenMax2 = {10} 
+found in RichInt.class, it returns max of 2 integers
+Question 6------------------------------------------------------------
+val biPower : BigInt = BigInt(2).pow(1024) ={179769313486231590772930519078902473361797697894230657273430081157732675805500963132708477322407536021120113879871393357658789768814416622492847430639474124377767893424865485276302219601246094119453082952085005768838150682342462881473913110540827237163350510684586298239947245938479716304835356329624224137216} 
+biPower has {309} digits 
+Question 7------------------------------------------------------------
+probablePrime ={934251634613074381118070572347} 
+SHOULD Import == {
+  import math.BigInt._
+  import util._
+   } 
+Question 8------------------------------------------------------------
+base36String = {24esgly1az8k9wqbamsp} with digits={20}  
+Question 9------------------------------------------------------------
+myName={Rajesh} firstChar={R} lastChar={h} 
+tricky code = {     
+    val myName = "Rajesh"
+    val fChar: Char = myName(0)
+    val lChar: Char = myName.reverse(0)   
+      } 
+Question 10------------------------------------------------------------
+for str={HelloWorld}  str.take(3)={Hel} 
+for str={HelloWorld}  str.take(12)={HelloWorld} 
+for str={HelloWorld}  str.drop(3)={loWorld} 
+for str={HelloWorld}  str.drop(12)={} 
+for str={HelloWorld}  str.takeRight(3)={rld} 
+for str={HelloWorld}  str.takeRight(12)={HelloWorld} 
+for str={HelloWorld}  str.dropRight(3)={HelloWo} 
+for str={HelloWorld}  str.dropRight(12)={} 
+Advantage of not using substring is, NO Exception if overflow
+DisAdvantage of not using substring is, we do not get to know if we are overflowing and we get empty string
+Another example of using str.substring(2,4)={ll} str.take(4).drop(2)={ll} 
+[success] Total time: 0 s, completed Feb 2, 2012 12:27:23 AM
