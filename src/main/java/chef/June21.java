@@ -1,17 +1,38 @@
 package chef;
 
-import java.util.Scanner;
+import java.util.BitSet;
 
 /**
  * Created by rpradeshik on 6/19/14.
  */
 public class June21 {
-    // http://www.codechef.com/problems/TEST
-    public static void easyTest(){
-        Scanner in = new Scanner(System.in);
-        int input = -1;
-        while( (input = in.nextInt()) != 42) System.out.println(input);
+    public static void testBitSet(){
+        BitSet bs = new BitSet(12);
+        print(bs.size());
+
+        bs.set(1, true);
+        bs.set(10, true);
+        printbs(bs);
+        //BitSet.valueOf(new long[0]);
+
+
     }
+
+    public static void countBits(int n){
+        BitSet bs = BitSet.valueOf(new long[]{(long)n});
+        print("1 bits=" + bs.cardinality());
+
+        int count = 0;
+
+        while (n > 0){
+            n = n & (n-1);
+        count++; if (count > 100) break;
+        }
+        print("1 bits count =" + count);
+
+
+    }
+
     public static void quicksort(int[] numbers){
         print("before Sorting");
         print(numbers);
@@ -53,5 +74,15 @@ public class June21 {
             comma = ",";
         }
         System.out.println("}");
+    }
+
+    private static void printbs(BitSet bs){
+        print("len=" + bs.toLongArray().length);
+        print(Long.toBinaryString(bs.toLongArray()[0]) );
+    }
+
+    private static void printbs(int i){
+
+        print(Long.toBinaryString((long)i) );
     }
 }
