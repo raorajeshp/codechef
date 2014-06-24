@@ -10,25 +10,25 @@ import java.util.*;
 public class BST <T extends Comparable<T>> implements Iterable<T>
 {
     private Node<T> root;
-    private Comparator<T> comparator;
+    private Comparator<T> data;
 
     public BST()
     {
         root = null;
-        comparator = null;
+        data = null;
     }
 
     public BST(Comparator<T> comp)
     {
         root = null;
-        comparator = comp;
+        data = comp;
     }
 
     private int compare(T x, T y)
     {
-        if(comparator == null) return x.compareTo(y);
+        if(data == null) return x.compareTo(y);
         else
-            return comparator.compare(x,y);
+            return data.compare(x,y);
     }
 
     /*****************************************************
@@ -178,10 +178,10 @@ public class BST <T extends Comparable<T>> implements Iterable<T>
     {
         BST<T> twin = null;
 
-        if(comparator == null)
+        if(data == null)
             twin = new BST<T>();
         else
-            twin = new BST<T>(comparator);
+            twin = new BST<T>(data);
 
         twin.root = cloneHelper(root);
         return twin;
