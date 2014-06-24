@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 public class ChefMain {
     public static void main(String[] args){
         June22 j22 = new June22();
+        June24 j24 = new June24();
 
 //      System.out.println("From Java");
 //      June19.easyTest();
@@ -26,7 +27,8 @@ public class ChefMain {
 //        print(new BigDecimal(Integer.MAX_VALUE));
 //        June21.countBits(9);
 
-        j22.testBits();
+        //j24.test();
+        j24.testBST();
 
     }
 

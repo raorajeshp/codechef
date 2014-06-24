@@ -31,7 +31,31 @@ public class June22 {
         reverseBits(121);
     }
 
-    void reverseBits(int num){
+    /*
+    for (i = sizeof(int) * 8; i; --i)
+{
+result <<= 1;
+if (n & 1)
+result |= 1;
+n >>= 1;
+}
+return result;
+}
+     */
+    void reverseBits(int n){
+        log.info("Given num={}", toBS(n) );
+        int result = 0;
+        for (int i = 32; i > 0; i--)
+        {
+            result <<= 1;
+            if ((n & 1) > 0)
+                result |= 1;
+            n >>= 1;
+        }
+
+        log.info("result={} bits={}", result, toBS( result) );
+    }
+    void reverseBits1(int num){
         log.info("Given num={}", toBS(num) );
         int count = 32 -1;
         int reverse_num = num;
