@@ -168,6 +168,20 @@ public class BST <T extends Comparable<T>> implements Iterable<T>
         }
     }
 
+    public void postOrderTraversal()
+    {
+        postOrderHelper(root);
+    }
+    private void postOrderHelper(Node r)
+    {
+        if (r != null)
+        {
+            postOrderHelper(r.left);
+            postOrderHelper(r.right);
+            System.out.print(r+" ");
+        }
+    }
+
     /*************************************************
      *
      *            CLONE
