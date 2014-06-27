@@ -6,10 +6,10 @@ import java.math.BigDecimal;
  * Created by rpradeshik on 6/19/14.
  */
 public class ChefMain {
-    public static void main(String[] args){
+    public static void main1(String[] args){
         June22 j22 = new June22();
         June24 j24 = new June24();
-
+        System.currentTimeMillis();
 //      System.out.println("From Java");
 //      June19.easyTest();
 
