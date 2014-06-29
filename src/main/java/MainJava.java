@@ -1,17 +1,32 @@
+import bits.BitMain;
+import bst.BstMain;
 import card.CardMain;
 import newcard.CardDeck;
 import roman.RomanMain;
+import sort.QuickSort;
 
 /**
  * Created by rpradeshik on 6/27/14.
  */
 public class MainJava {
     public static void main(String[] args){
-//        CardMain cardMain = new CardMain();
-//        cardMain.test();
+        int[] numbers = { 15, 5, 12, 2, 100, 98, 101, 2, 1, 44};
+        QuickSort quickSort = new QuickSort();
+        //sortMain.quicksort(numbers);
 
-//        CardDeck cardDeck = new CardDeck();
-//        cardDeck.test();
-        new RomanMain().test();
+        BitMain bitMain = new BitMain();
+        //bitMain.test();
+
+        CardMain cardMain = new CardMain();
+        //cardMain.test();
+
+        CardDeck cardDeck = new CardDeck();
+        //cardDeck.test();
+
+        RomanMain romanMain =   new RomanMain();
+        //romanMain.test();
+
+        BstMain bstMain = new BstMain();
+        bstMain.test();
     }
 }

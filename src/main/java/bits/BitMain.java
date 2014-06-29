@@ -1,47 +1,60 @@
-package chef;
+package bits;
+
+import java.util.BitSet;
 
 /**
  * Created by rpradeshik on 6/19/14.
  */
-public class June22 {
-    private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(June22.class);
+public class BitMain {
+    private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(BitMain.class);
 
-    public June22(){}
-    public void testBits(){
+    public BitMain(){}
+    public void test(){
+//        countBits(143);
 //        testOddEven(8);
 //        testOddEven(9);
 //        testOddEven(-9);
-
+//
 //        testIsSet(8, 2);
 //        testIsSet(8, 3);
-
+//
 //        testToggle(43);
-
+//
 //        turnOffRightmost(5);
-
+//
 //        testIsNegative(9);
 //        testIsNegative(-9);
 //
 //        log.info("flip 1={}", toBS( (~1) + 1 ) );
 //        log.info("flip 1={}", toBS( -1 ) );
-
+//
 //        findRightmostPos(6);
 //        findRightmostPos(2);
+//
+//        reverseBits(121);
 
-        reverseBits(121);
+        testMid(0,6);
+        testMid(0,7);
+        testMid(6,0);
+
     }
 
-    /*
-    for (i = sizeof(int) * 8; i; --i)
-{
-result <<= 1;
-if (n & 1)
-result |= 1;
-n >>= 1;
-}
-return result;
-}
-     */
+    void testMid(int a, int b){
+        log.info("  a={}, b={}, mid={}", a, b, (a +b >> 1) );
+    }
+    void countBits(int n){
+        BitSet bs = BitSet.valueOf(new long[]{(long)n});
+        log.info("source n={} 1 bits=" , Long.toBinaryString((long)n), bs.cardinality());
+
+        int count = 0;
+
+        while (n > 0){
+            n = n & (n-1);
+            count++; if (count > 100) break;
+        }
+        log.info("1 bits count = {}" , count);
+    }
+
     void reverseBits(int n){
         log.info("Given num={}", toBS(n) );
         int result = 0;
@@ -55,6 +68,7 @@ return result;
 
         log.info("result={} bits={}", result, toBS( result) );
     }
+
     void reverseBits1(int num){
         log.info("Given num={}", toBS(num) );
         int count = 32 -1;

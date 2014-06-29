@@ -7,7 +7,6 @@ import java.math.BigDecimal;
  */
 public class ChefMain {
     public static void main1(String[] args){
-        June22 j22 = new June22();
         June24 j24 = new June24();
         System.currentTimeMillis();
 //      System.out.println("From Java");
