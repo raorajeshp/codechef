@@ -63,6 +63,25 @@ public class BinaryTree {
         root = delete(root, value);
     }
 
+    public void printDupes() {
+        //we will do inOrderTraversel
+        printDupesRec(this.root);
+    }
+
+    private int prevStore = Integer.MIN_VALUE;
+    private int dupeCountStore = 0;
+    private void printDupesRec(Node node){
+        if (node == null) return;
+        printDupesRec(node.left);
+        int currValue = node.value;
+        if (prevStore != currValue){
+            if (dupeCountStore > 0) log.info("Number={} duplicated={}", prevStore, dupeCountStore);
+            prevStore = currValue; dupeCountStore=0;
+        }
+        else dupeCountStore++;
+        printDupesRec(node.right);
+    }
+
     private Node delete(Node node, int value) {
         if (node == null) throw new RuntimeException("cannot delete.");
 

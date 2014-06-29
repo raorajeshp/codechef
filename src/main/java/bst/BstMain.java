@@ -10,8 +10,8 @@ public class BstMain {
     private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(BstMain.class);
 
     public void test() {
-        //
-        test3OrderTraversals(); //this does insert too
+        // testHash();
+        //        test3OrderTraversals(); //this does insert too
         // testMinMax();
         // testSize();
 
@@ -25,9 +25,20 @@ public class BstMain {
         //testSearch();
         //        testDupeSearch();
 
+        testDupesCount();
+
         //testClone();
         //testIsBst();
         //testDups();
+    }
+
+    public void testDupesCount(){
+        // http://cdn.javabeat.net/wp-content/uploads/2013/11/BST_Example.jpg
+        final int[] treeData = //{40, 10, 3, 32, 17, 30, 25, 38, 50, 78, 93};
+                {40, 10, 3, 32, 17, 30, 25, 38, 50, 78, 93, 30, 10}; //30 and 10 are made dupes
+        BinaryTree bTree = new BinaryTree();
+        for (int a : treeData) bTree.insert(a);
+        bTree.printDupes();
     }
 
     public void testSearch(){
@@ -214,7 +225,7 @@ public class BstMain {
     }
 
     public void test3OrderTraversals() {
-        final int[] treeData = {40, 25, 78, 10, 3, 17, 32, 30, 38, 50, 93, 49};
+        final int[] treeData = {40, 25, 78, 10, 3, 17, 32, 30, 38, 50, 93};
 
         final int[] inOrderData = {3, 10, 17, 25, 30, 32, 38, 40, 50, 78, 93};
         final int[] preOrderData = {40, 25, 10, 3, 17, 32, 30, 38, 78, 50, 93};
@@ -259,6 +270,14 @@ public class BstMain {
     private Node cloneHelper(Node node) {
         if (node == null) return null;
         else return new Node(node.value, cloneHelper(node.left), cloneHelper(node.right));
+    }
+
+    private void testHash(){
+        log.info("Aa".hashCode() + "," + "BB".hashCode());
+        log.info("Ba".hashCode() + "," + "CB".hashCode());
+        log.info("Ca".hashCode() + "," + "DB".hashCode());
+        log.info("Da".hashCode() + "," + "EB".hashCode());
+
     }
 }
 
