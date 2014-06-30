@@ -30,7 +30,7 @@ public class MainJava {
         //romanMain.test();
 
         BinaryTreeMain bstMain = new BinaryTreeMain();
-        bstMain.test();
+        //bstMain.test();
 
         MidPointInArray midPointInArray = new MidPointInArray();
         //midPointInArray.findBalanceIndex();
