@@ -6,8 +6,8 @@ import java.util.List;
 /**
  * Created by rpradeshik on 6/28/14.
  */
-public class BstMain {
-    private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(BstMain.class);
+public class BinaryTreeMain {
+    private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(BinaryTreeMain.class);
 
     public void test() {
         // testHash();
@@ -35,7 +35,7 @@ public class BstMain {
     public void testDupesCount(){
         // http://cdn.javabeat.net/wp-content/uploads/2013/11/BST_Example.jpg
         final int[] treeData = //{40, 10, 3, 32, 17, 30, 25, 38, 50, 78, 93};
-                {40, 10, 3, 32, 17, 30, 25, 38, 50, 78, 93, 30, 10}; //30 and 10 are made dupes
+                {40, 10, 3, 32, 17, 30, 25, 38, 50, 78, 93, 30, 10, 30}; //30 and 10 are made dupes
         BinaryTree bTree = new BinaryTree();
         for (int a : treeData) bTree.insert(a);
         bTree.printDupes();

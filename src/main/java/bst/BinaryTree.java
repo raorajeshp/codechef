@@ -63,27 +63,8 @@ public class BinaryTree {
         root = delete(root, value);
     }
 
-    public void printDupes() {
-        //we will do inOrderTraversel
-        printDupesRec(this.root);
-    }
-
-    private int prevStore = Integer.MIN_VALUE;
-    private int dupeCountStore = 0;
-    private void printDupesRec(Node node){
-        if (node == null) return;
-        printDupesRec(node.left);
-        int currValue = node.value;
-        if (prevStore != currValue){
-            if (dupeCountStore > 0) log.info("Number={} duplicated={}", prevStore, dupeCountStore);
-            prevStore = currValue; dupeCountStore=0;
-        }
-        else dupeCountStore++;
-        printDupesRec(node.right);
-    }
-
     private Node delete(Node node, int value) {
-        if (node == null) throw new RuntimeException("cannot delete.");
+        if (node == null) throw new RuntimeException("given value=" + value + " not found to delete.");
 
         if (value < node.value)
             node.left = delete(node.left, value);
@@ -105,6 +86,29 @@ public class BinaryTree {
     private int retrieveData(Node node) {
         while (node.right != null) node = node.right;
         return node.value;
+    }
+
+    public void printDupes() {
+        //we will do inOrderTraversel
+        printDupesRec(this.root, new Store());
+    }
+
+    private void printDupesRec(Node node, Store store){
+        if (node == null) return;
+        printDupesRec(node.left, store);
+        int currValue = node.value;
+        if (store.prevStore != currValue){
+            if (store.dupeCount > 0)
+                log.info("Number={} duplicated={}", store.prevStore, store.dupeCount);
+            store.prevStore = currValue; store.dupeCount=0;
+        }
+        else store.dupeCount++;
+        printDupesRec(node.right, store);
+    }
+
+    class Store{
+        int prevStore= Integer.MIN_VALUE;
+        int dupeCount = 0;
     }
 
     // DO NOT USE REMOVE, it has BUG
