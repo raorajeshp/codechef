@@ -25,11 +25,56 @@ public class BinaryTreeMain {
         //testSearch();
         //        testDupeSearch();
 
-        testDupesCount();
+        //testDupesCount();
 
         //testClone();
         //testIsBst();
         //testDups();
+
+        //testRevOrder();
+
+        //testGetLeast(24635);
+
+        testHeightWidthDia();
+    }
+
+    public void testGetLeast(int n){
+        BinaryTree bTree = new BinaryTree();
+        for (int a : String.valueOf(n).toCharArray()) bTree.insert(a - 48);
+
+        bTree.printInsertOrder();
+/*
+
+        bTree.printInOrder();
+        log.info("inOrder Tree=\n {}", bTree.inOrderData);
+
+        bTree.printPreOrder();
+        log.info("preOrder Tree=\n {}", bTree.preOrderData);
+
+        bTree.printPostOrder();
+        log.info("postOrder Tree=\n {}", bTree.postOrderData);
+*/
+
+    }
+
+    public void testHeightWidthDia(){
+        // http://cdn.javabeat.net/wp-content/uploads/2013/11/BST_Example.jpg
+        final int[] treeData = {40, 10, 3, 32, 17, 30, 25, 38, 50, 78, 93};
+        BinaryTree bTree = new BinaryTree();
+        for (int a : treeData) bTree.insert(a);
+        log.info("height={} width={} diameter={}", bTree.height(), bTree.width(), bTree.diameter());
+    }
+
+    public void testRevOrder(){
+        // http://cdn.javabeat.net/wp-content/uploads/2013/11/BST_Example.jpg
+        final int[] treeData = {40, 10, 3, 32, 17, 30, 25, 38, 50, 78, 93};
+        BinaryTree bTree = new BinaryTree();
+        for (int a : treeData) bTree.insert(a);
+        bTree.printInOrder();
+        log.info("inOrder Tree=\n {}", bTree.inOrderData);
+
+        bTree.printRevOrder();
+        log.info("revOrder Tree=\n {}", bTree.revOrderData);
     }
 
     public void testDupesCount(){
@@ -154,7 +199,7 @@ public class BinaryTreeMain {
         BinaryTree bTree = new BinaryTree();
         for (int a : treeData) bTree.insert(a);
 
-        log.info("FIRST IsBst={}", isBST(bTree.root, null));
+        log.info("FIRST IsBst={}", bTree.isBST(bTree.root));
         // /*
         //we do InOrder so that it indexes ascending
         bTree.printInOrder();
@@ -167,24 +212,13 @@ public class BinaryTreeMain {
         node50.value = 32;
         log.info("After Interchange indexStore={}", bTree.indexStore);
 
-        log.info("SECOND IsBst={}", isBST(bTree.root, null));
+        log.info("SECOND IsBst={}", bTree.isBST(bTree.root));
 
         // */
 
     }
 
-    private boolean isBST(Node node, Node prev){
-        //log.info("isBST");
-        if (node != null) {
-            if (!isBST(node.left, prev)) return false;
 
-            if (prev != null && node.value <= prev.value) return false;
-            prev = node;
-
-            return isBST(node.right, prev);
-        }
-        return true;
-    }
 
     public void testSize() {
         // http://cdn.javabeat.net/wp-content/uploads/2013/11/BST_Example.jpg

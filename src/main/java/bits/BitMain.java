@@ -30,15 +30,45 @@ public class BitMain {
 //
 //        findRightmostPos(6);
 //        findRightmostPos(2);
-//
 //        reverseBits(121);
 
-        testMid(0,6);
-        testMid(0,7);
-        testMid(6,0);
+//        testMid(0,6);
+//        testMid(0,7);
+//        testMid(6,0);
 
+//    log.info("addInt={}", addInt(23, -27));
+//        powerSet();
     }
 
+    /**
+     * Get the least number after deleting k digits from the input number.
+     * For example, if the input
+     * number is 24635, the least number is 23 after deleting 3 digits
+     */
+
+    void powerSet(){
+        int A[] = {1,2,3,4,5};
+        int N = 5;
+        int Total = 1 << N;
+        log.info("Total={}", Total);
+        for ( int i = 0; i < Total; i++ ) {
+            for ( int j = 0; j < N; j++) {
+                if ( ((i >> j) & 1) > 0)
+                    log.info("j={} arrayA[j]={}", j, A[j]);
+            }
+        }
+    }
+
+    int addInt(int a, int b){
+        int limit = 0;
+        while (b != 0){
+            int carry = a & b;
+            a = a ^ b;
+            b = carry << 1;
+            if (++limit > 1000) break;
+        }
+        return a;
+    }
     void testMid(int a, int b){
         log.info("  a={}, b={}, mid={}", a, b, (a +b >> 1) );
     }
@@ -50,7 +80,7 @@ public class BitMain {
 
         while (n > 0){
             n = n & (n-1);
-            count++; if (count > 100) break;
+            if (++count > 100) break;
         }
         log.info("1 bits count = {}" , count);
     }

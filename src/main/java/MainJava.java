@@ -2,6 +2,7 @@ import bits.BitMain;
 import bst.BinaryTreeMain;
 import card.CardMain;
 import card.CardDeck;
+import misc.CountOccuranceInSortedArray;
 import misc.MidPointInArray;
 import roman.RomanMain;
 import sort.QuickSort;
@@ -30,10 +31,14 @@ public class MainJava {
         //romanMain.test();
 
         BinaryTreeMain bstMain = new BinaryTreeMain();
-        //bstMain.test();
+        //
+        bstMain.test();
 
         MidPointInArray midPointInArray = new MidPointInArray();
         //midPointInArray.findBalanceIndex();
+
+        CountOccuranceInSortedArray countOccuranceInSortedArray = new CountOccuranceInSortedArray();
+        //countOccuranceInSortedArray.test();
     }
 }
 

@@ -10,6 +10,7 @@ public class BinaryTree {
     private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(BinaryTree.class);
 
     public List<Integer> inOrderData = new ArrayList<Integer>();
+    public List<Integer> revOrderData = new ArrayList<Integer>();
     public List<Integer> preOrderData = new ArrayList<Integer>();
     public List<Integer> postOrderData = new ArrayList<Integer>();
     public List<Node> indexStore = new ArrayList<Node>();
@@ -35,6 +36,19 @@ public class BinaryTree {
         size++;
     }
 
+    /*
+    Node prev = null;
+    public void insert(int value) {
+        root = insertRec(root, value);
+        if (prev == null ) prev = root;
+        else {
+            prev.next = root.left == null ? root.right : root.left;
+            log.info("prev.next={}", prev.next);
+            prev = prev.next;
+        }
+        size++;
+    }
+    */
     //http://shashank7s.blogspot.com/2011/03/write-program-to-remove-duplicates-from.html
     private Node insertRec(Node node, int value) {
         if (node == null) return new Node(value);
@@ -44,6 +58,17 @@ public class BinaryTree {
         return node;
     }
 
+    public void printInsertOrder(){
+        //log.info("nextNode={}", root.next);
+
+        Node nextNode = root;
+        int limit = 0;
+        while(nextNode.next != null) {
+            log.info("nextNode={}", nextNode.value);
+            if (++limit > 20) break;
+        }
+
+    }
     public Node search(int value) {
         return search(root, value);
     }
@@ -182,6 +207,26 @@ public class BinaryTree {
         printInOrderRec(current.right);
     }
 
+    /**
+     * this is used to print values in ascending order,
+     * starts from bottom left most to the right
+     */
+    public void printRevOrder() {
+        log.info("=== printInOrder ==");
+        indexStore.clear();
+
+        printRevOrderRec(root);
+    }
+
+    private void printRevOrderRec(Node current) {
+        if (current == null) return;
+        printRevOrderRec(current.right);
+        //log.info(String.valueOf(current.value));
+        revOrderData.add(current.value);
+        indexStore.add(current);
+        printRevOrderRec(current.left);
+    }
+
     public void printPostOrder() {
         if (root == null) return;
         log.info("=== printPostOrder ===");
@@ -195,5 +240,69 @@ public class BinaryTree {
         printPostOrderRec(current.right);
         //log.info(String.valueOf(current.value));
         postOrderData.add(current.value);
+    }
+
+    public boolean isBST(Node node){
+        return isBST(node, null);
+    }
+
+    private boolean isBST(Node node, Node prev){
+        //log.info("isBST");
+        if (node != null) {
+            if (!isBST(node.left, prev)) return false;
+
+            if (prev != null && node.value <= prev.value) return false;
+            prev = node;
+
+            return isBST(node.right, prev);
+        }
+        return true;
+    }
+    /**
+     * We need height to be calculated first to calculate width and diameter of tree
+     * @return
+     */
+    public int height(){
+        return height(root);
+    }
+
+    private int height(Node node){
+        if (node == null) return -1;
+        else return 1 + Math.max(height(node.left), height(node.right));
+    }
+
+    /**
+     * Diameter of a tree is max of height and diameter of node
+     */
+    public int diameter(){
+        return diameter(root);
+    }
+
+    private int diameter(Node node){
+        if (node == null) return 0;
+        int hh = height(node.left) + height(node.right) + 3;
+        int dd = Math.max(diameter(node.left), diameter(node.right));
+
+        return Math.max(hh, dd);
+    }
+
+    /**
+     * Width of the tree is max number of nodes on a level of tree
+     */
+    public int width(){
+        int max = 0;
+        int depth = height();
+        for(int k=0; k < depth; k++){
+            int temp = width(root, k);
+            if (temp > max) max = temp;
+        }
+
+        return max;
+    }
+
+    private int width(Node node, int depth){
+        if (depth == 0) return 1;
+        else if (node == null) return 0;
+        else return width(node.left, depth - 1) + width(node.right, depth - 1);
     }
 }
