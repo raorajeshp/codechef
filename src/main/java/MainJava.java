@@ -41,7 +41,10 @@ public class MainJava {
         //countOccuranceInSortedArray.test();
 
         Hashtable1 hashtable1 = new Hashtable1();
-        hashtable1.test();
+        //hashtable1.test();
+
+        ATest aTest = new ATest();
+        aTest.test();
     }
 }
 
