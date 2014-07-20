@@ -6,6 +6,7 @@ import hashtable.Hashtable1;
 import misc.CountOccuranceInSortedArray;
 import misc.MidPointInArray;
 import roman.RomanMain;
+import sort.LinkList;
 import sort.QuickSort;
 
 /**
@@ -43,8 +44,11 @@ public class MainJava {
         Hashtable1 hashtable1 = new Hashtable1();
         //hashtable1.test();
 
+        LinkList linkList = new LinkList();
+        linkList.test();
+
         ATest aTest = new ATest();
-        aTest.test();
+        //aTest.test();
     }
 }
 
