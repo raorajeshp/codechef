@@ -8,9 +8,18 @@ public class ATest {
 
     public void test(){
 
-        Vector v = null;
-        List list = null ;
-        Stack stack = null;
+        //see if string gets trimmed for null char
+        String test = "Some Long  String   Last";
+        char[] cArray = test.toCharArray();
+        char prevChar = cArray[0];
+        for(int i = 1; i < cArray.length; i++) {
+            if (cArray[i] == ' ' && prevChar == ' ') {
+//                prevChar = cArray[i] ;
+                cArray[i] = '\0';
+            }
+            else prevChar = cArray[i] ;
+            }
+        log.debug("beforeClean={} afterClean={}", test, String.valueOf(cArray));
+        }
 
-    }
 }

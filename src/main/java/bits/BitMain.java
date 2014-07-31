@@ -10,7 +10,8 @@ public class BitMain {
 
     public BitMain(){}
     public void test(){
-//        countBits(143);
+//countBits(143);
+       //countBits(9);
 //        testOddEven(8);
 //        testOddEven(9);
 //        testOddEven(-9);
@@ -30,14 +31,15 @@ public class BitMain {
 //
 //        findRightmostPos(6);
 //        findRightmostPos(2);
+//        findRightmostPos(9);
 //        reverseBits(121);
 
 //        testMid(0,6);
 //        testMid(0,7);
 //        testMid(6,0);
 
-//    log.info("addInt={}", addInt(23, -27));
-//        powerSet();
+//log.info("addInt={}", addInt(23, -27));
+//powerSet();
     }
 
     /**
@@ -117,7 +119,7 @@ public class BitMain {
 
     void testOddEven(int n){
         String result =  ( (n & 1) > 0) ? "Odd":"Even";
-        log.info("Given Number={} is={} ", n,  result );
+        log.info("Given Number={} BS={} is={} ", n, toBS(n), result );
     }
 
     void testIsSet(int n, int bitpos){
@@ -126,13 +128,13 @@ public class BitMain {
     }
 
     void testIsNegative(int n){
-        boolean isNegative = ( (n & ~(1) + 1) > 0);
-        log.info("Given Number={} isNegative={}", n, isNegative );
+        boolean isNegative = ! ( (n & ~(1) + 1) > 0);
+        log.info("Given Number={} toBS={} isNegative={}", n, toBS(n), isNegative );
     }
 
     void findRightmostPos(int n){
         int rightPos = ( n & (-n) );
-        log.info("Given Number={} rightPos={}", n, rightPos );
+        log.info("Given Number={} toBS={} -nBS={} rightPos={}", n, toBS(n), toBS(-n), rightPos );
     }
 
     void turnOffRightmost(int n){

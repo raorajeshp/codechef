@@ -24,36 +24,59 @@ public class LinkList {
         //test next
         //for(int i=1; i <= 5; i++ ) log.info("next={}", mylist.next());
 
-        //
-        testIterator();
+        //        testIterator();
         //testRecursiveReverse();
         //testReverse();
+
+        testDelete3();
+    }
+
+    void testDelete3(){
+        //delete the value 3
+        log.debug("3rd value={}", mylist.head.next.next.data);
+        log.debug("delete 3rd value={}", deleteGivenNode(mylist.head.next.next) );
+        log.debug("after delete the list is={}", mylist );
+    }
+
+
+
+    private boolean deleteGivenNode(Node node) {
+        boolean found = false;
+
+        if (node != null && node.next != null) {
+            node.data = node.next.data;
+            node.next = node.next.next;
+
+            found = true;
+        }
+
+        return found;
     }
 
     //java LinkedList
-    private java.util.LinkedList<Integer> reverse(java.util.LinkedList<Integer> src){
+    private java.util.LinkedList<Integer> reverse(java.util.LinkedList<Integer> src) {
         log.info("src={}", src);
         return src;
     }
 
-    private void testIterator(){
+    private void testIterator() {
         //test using iterator
         Iterator<Node> it = mylist.iterator();
-        while(it.hasNext()) log.info("it node={}", it.next());
+        while (it.hasNext()) log.info("it node={}", it.next());
         //test original is still intact
         log.info("after iterator mylist={}", mylist);
     }
 
-    private void testRecursiveReverse(){
+    private void testRecursiveReverse() {
         //test reverse using recursive
         mylist.reverse3();
         log.info("recursive mylist={}", mylist);
     }
 
-    private void testReverse(){
+    private void testReverse() {
         // worked
-         mylist.reverse1();
-         log.info("mylist={}", mylist);
+        mylist.reverse1();
+        log.info("mylist={}", mylist);
 
         reverse(mylist);
         log.info("after reverse mylist={}", mylist);
@@ -67,7 +90,7 @@ public class LinkList {
 
         Node next = null, curr = head, prev = null;
 
-        while (curr != null){
+        while (curr != null) {
             next = curr.next;
             curr.next = prev;
             prev = curr;
@@ -80,24 +103,28 @@ public class LinkList {
         LList() {
         }
 
-        class LIterator implements Iterator<Node>{
+        class LIterator implements Iterator<Node> {
             Node pointer;
-            LIterator(){
+
+            LIterator() {
                 pointer = head;
             }
-            public Node next(){
+
+            public Node next() {
                 Node tmp = null;
-                if (hasNext()){
+                if (hasNext()) {
                     tmp = pointer;
                     pointer = pointer.next;
                 }
 
                 return tmp;
             }
-            public boolean hasNext(){
+
+            public boolean hasNext() {
                 return pointer != null;
             }
-            public void remove(){
+
+            public void remove() {
 
             }
         }
@@ -105,6 +132,7 @@ public class LinkList {
         Iterator<Node> iterator() {
             return new LIterator();
         }
+
         Node head;
         /* to add using ONLY head
 
@@ -134,13 +162,13 @@ public class LinkList {
 
         }//end class
 
-        void reverse3(){
+        void reverse3() {
             head = rrev(head);
         }
 
-        private Node rrev(Node node){
+        private Node rrev(Node node) {
             //if single
-            if (node  == null || node.next == null) return node;
+            if (node == null || node.next == null) return node;
             log.debug("node value={}", node);
             Node secondNode = node.next;
             node.next = null;

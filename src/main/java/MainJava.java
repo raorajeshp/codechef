@@ -2,6 +2,7 @@ import bits.BitMain;
 import bst.BinaryTreeMain;
 import card.CardMain;
 import card.CardDeck;
+import cbook.Ch1;
 import hashtable.Hashtable1;
 import misc.CountOccuranceInSortedArray;
 import misc.MidPointInArray;
@@ -33,7 +34,7 @@ public class MainJava {
         //romanMain.test();
 
         BinaryTreeMain bstMain = new BinaryTreeMain();
-        //        bstMain.test();
+                bstMain.test();
 
         MidPointInArray midPointInArray = new MidPointInArray();
         //midPointInArray.findBalanceIndex();
@@ -45,10 +46,13 @@ public class MainJava {
         //hashtable1.test();
 
         LinkList linkList = new LinkList();
-        linkList.test();
+        //linkList.test();
 
         ATest aTest = new ATest();
         //aTest.test();
+
+        Ch1 ch1 = new Ch1();
+        //ch1.test();
     }
 }
 

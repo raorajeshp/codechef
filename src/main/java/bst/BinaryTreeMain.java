@@ -22,7 +22,7 @@ public class BinaryTreeMain {
         //testRemove();
         //testRemoveDupe();
 
-        //testSearch();
+        testSearch();
         //        testDupeSearch();
 
         //testDupesCount();

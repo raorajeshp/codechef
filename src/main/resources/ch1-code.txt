@@ -1,0 +1,26 @@
+1.1)
+boolean hasUniqueChars(String src){
+boolean unique = true;
+char[] srcArray = src.toCharArray();
+int len = srcArray.length;
+
+for (int i = 0; i < len && unique; i++){
+    for (int j = i; j < len && unique; j++){
+        if (srcArray[i] == srcArray[j]) unique = false;
+    }
+}
+return unique;
+}
+
+1.2)
+String reverse(String src){
+char[] srcArray = src.toCharArray();
+
+for (int i = 0, len = srcArray.length; i < len/2; i++){
+    char tmp = srcArray[i];
+    srcArray[i] = srcArray[len - i - 1];
+    srcArray[len - i - 1] = tmp;
+}
+
+return String.valueOf(srcArray);
+}
